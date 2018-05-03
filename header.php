@@ -48,9 +48,8 @@
 		<?php endif; ?>
 
 		<?php if ( has_nav_menu ( 'primary' ) || is_active_sidebar( 'sidebar-1' ) ) : ?>
-			<?php // Minnow mod: switched from button to checkbox with button label. Most of this could be avoided if we had https://github.com/ampproject/amphtml/issues/1032 ?>
-			<input id="menu-toggle-checkbox" type="checkbox" hidden on="change:AMP.setState({ minnow: { navMenuExpanded: event.checked } })">
-			<label for="menu-toggle-checkbox" class="menu-toggle" role="button" tabindex="0" title="<?php esc_attr_e( 'Sidebar', 'minnow' ); ?>"><span class="screen-reader-text"><?php _e( 'Sidebar', 'minnow' ); ?></span></label>
+			<?php // Minnow mod: added on attribute. ?>
+			<button class="menu-toggle" on="tap:AMP.setState({ minnow: { navMenuExpanded: ! minnow.navMenuExpanded } })" title="<?php esc_attr_e( 'Sidebar', 'minnow' ); ?>"><span class="screen-reader-text"><?php _e( 'Sidebar', 'minnow' ); ?></span></button>
 		<?php endif; ?>
 
 		<div class="slide-menu" [class]="'slide-menu' + ( minnow.navMenuExpanded ? ' expanded' : '' )"><?php // Minnow mod: added amp-bind attribute ?>
