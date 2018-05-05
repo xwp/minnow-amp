@@ -18,12 +18,18 @@
 <?php wp_head(); ?>
 </head>
 
-<?php // Minnow mod: added [class] attribute and amp-state. ?>
-<body <?php body_class(); ?> [class]="minnow.bodyClasses.concat( minnow.navMenuExpanded ? 'sidebar-open' : '' ).filter( className => '' != className )">
+<?php
+// Minnow mod: added [class] attribute and amp-state.
+$body_classes = get_body_class();
+?>
+<body
+	class="<?php echo esc_attr( implode( ' ', $body_classes ) ); ?>"
+	[class]="minnow.bodyClasses.concat( minnow.navMenuExpanded ? 'sidebar-open' : '' ).filter( className => '' != className )"
+>
 <amp-state id="minnow">
 	<?php
 	$state = array(
-		'bodyClasses'     => get_body_class(),
+		'bodyClasses'     => $body_classes,
 		'navMenuExpanded' => false,
 	)
 	?>
