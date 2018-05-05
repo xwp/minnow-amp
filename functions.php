@@ -10,6 +10,15 @@
  */
 function minnow_amp_setup() {
 	add_theme_support( 'amp' );
+	
+	$defaults = array(
+		'height'      => 300,
+		'width'       => 300,
+		'flex-height' => true,
+		'flex-width'  => true,
+		'header-text' => array( 'site-title' ),
+	);
+	add_theme_support( 'custom-logo', $defaults );
 }
 add_action( 'after_setup_theme', 'minnow_amp_setup', 11 );
 
