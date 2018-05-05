@@ -19,7 +19,7 @@
 </head>
 
 <?php // Minnow mod: added [class] attribute and amp-state. ?>
-<body <?php body_class(); ?> [class]="minnow.bodyClasses.concat( minnow.navMenuExpanded ? 'sidebar-open' : '' ).filter( className =&gt; '' != className )"><?php // Note =&gt; used instead of => due to current limitation in AMP plugin. See <https://github.com/Automattic/amp-wp/pull/1111/commits/52b3616>. ?>
+<body <?php body_class(); ?> [class]="minnow.bodyClasses.concat( minnow.navMenuExpanded ? 'sidebar-open' : '' ).filter( className => '' != className )">
 <amp-state id="minnow">
 	<?php
 	$state = array(
